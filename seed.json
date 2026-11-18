@@ -1,0 +1,80 @@
+[
+  {
+    "channel": "ai",
+    "title": "DeepSeek 发布支持视觉理解的 V4.1-Flash",
+    "summary": "DeepSeek 推出新架构家族中体量最小的模型，加入原生多模态视觉理解，并在 API 提供调用。",
+    "source": "DeepSeek",
+    "source_date": "2026-09-10",
+    "source_url": "https://api-docs.deepseek.com/updates/#date-2026-09-10",
+    "kind": "新品发布",
+    "paper": "",
+    "evidence": "",
+    "event": "DeepSeek 发布 V4.1-Flash。官方更新日志将它描述为新架构家族中最小的模型，并列出推理、吞吐量及文本基准方面的变化。",
+    "why": "此前需要另外接入视觉能力的工作流，可以评估是否用同一个模型处理图像和文本。公告中的基准由厂商提供，实际适用性取决于任务数据。"
+  },
+  {
+    "channel": "ai",
+    "title": "OpenAI 发布 GPT-5.6 系列",
+    "summary": "OpenAI 公布 Sol、Terra 和 Luna 三款模型，覆盖不同的推理能力与运行成本需求。",
+    "source": "OpenAI",
+    "source_date": "2026-07-09",
+    "source_url": "https://openai.com/index/gpt-5-6/",
+    "kind": "新品发布",
+    "paper": "",
+    "evidence": "",
+    "event": "OpenAI 在原始公告中介绍 GPT-5.6 家族，包括用于复杂任务的 Sol，以及面向不同速度和成本需求的 Terra 与 Luna。",
+    "why": "同一代模型提供不同规格，有助于团队根据任务难度安排模型，在需要长时间推理的任务与高频短任务之间分配成本。"
+  },
+  {
+    "channel": "ai",
+    "title": "DeepSeek 上线 V4 预览版",
+    "summary": "V4 预览版提供 Pro 和 Flash 两个规格，并将百万级上下文带到官方应用和 API。",
+    "source": "DeepSeek",
+    "source_date": "2026-04-24",
+    "source_url": "https://www.deepseek.com/news/v4-preview/",
+    "kind": "厂商预告／预览",
+    "paper": "",
+    "evidence": "",
+    "event": "DeepSeek 在官方公告中宣布 V4 预览版上线并开放模型权重，同时发布技术报告。",
+    "why": "长上下文让团队能够尝试一次处理更多文档或项目材料。可输入的长度和模型有效利用信息的程度是两个需要分别评估的指标。"
+  },
+  {
+    "channel": "robotics",
+    "title": "Physical Intelligence 用 π₀.₇ 测试跨机器人技能泛化",
+    "summary": "研究团队在多种实机平台上评测 π₀.₇，展示语言引导操作、技能组合与跨本体迁移。",
+    "source": "Physical Intelligence · arXiv",
+    "source_date": "2026-04-16",
+    "source_url": "https://arxiv.org/abs/2604.15483",
+    "kind": "研究成果",
+    "paper": "预印本",
+    "evidence": "实机评测",
+    "event": "团队报告了多项实机实验，包括操作咖啡机，以及将折叠衣物的技能迁移到没有该任务训练数据的机器人本体。",
+    "why": "跨本体和跨任务评测帮助判断模型能否复用已有技能。阅读论文时可以对照每项实验的训练数据、机器人构型和成功率。"
+  },
+  {
+    "channel": "robotics",
+    "title": "Google DeepMind 探索 Gemini Robotics 1.5 的动作迁移",
+    "summary": "技术报告介绍两款机器人模型，并用跨本体实验考察动作技能能否在不同机器人之间复用。",
+    "source": "Google DeepMind · arXiv",
+    "source_date": "2025-10-02",
+    "source_url": "https://arxiv.org/abs/2510.03342",
+    "kind": "研究成果",
+    "paper": "预印本",
+    "evidence": "实机评测",
+    "event": "技术报告介绍将视觉和指令转化成动作的 Gemini Robotics 1.5，以及负责规划、空间推理等任务的 Gemini Robotics-ER 1.5。报告包含不同机器人本体之间的技能迁移实验。",
+    "why": "动作模型与推理模型的分工提供了一种组织多步骤任务的方式。跨本体评测可以进一步回答一种机器人采集的数据对另一种机器人有多大帮助。"
+  },
+  {
+    "channel": "ai",
+    "title": "Anthropic 发布面向高频任务的 Claude Haiku 5.5",
+    "summary": "Claude Haiku 5.5 面向摘要、分类等高频任务，并首次为 Haiku 系列提供可调推理强度。",
+    "source": "Anthropic",
+    "source_date": "2026-10-07",
+    "source_url": "https://www.anthropic.com/claude-haiku-5-5",
+    "kind": "新品发布",
+    "paper": "",
+    "evidence": "",
+    "event": "Anthropic 推出面向高吞吐和成本敏感场景的 Haiku 5.5，并给出与上一代 Haiku 在评测及使用成本上的对比。",
+    "why": "摘要和分类通常要处理大量输入。可调推理强度让团队能用自己的数据测量准确率、耗时和成本，再为不同任务选择设置。"
+  }
+]

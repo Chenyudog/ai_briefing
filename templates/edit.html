@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ '编辑新闻' if article_id else '新建新闻' }} · AI 大事{% endblock %}
+{% block main %}
+<section class="workspace editor">
+  <a class="back" href="{{ url_for('admin') }}">← 返回编辑后台</a>
+  <h1>{{ '编辑新闻' if article_id else '新建新闻' }}</h1>
+  {% if article_id and not errors and request.args.get('saved') == article.status %}
+  <p class="notice" role="status">
+    {% if article.status == 'published' %}已发布。<a href="{{ url_for('detail', article_id=article_id) }}">查看新闻 ↗</a>
+    {% else %}草稿已保存。{% endif %}
+  </p>
+  {% endif %}
+  {% if errors %}
+  <ul class="error" role="alert">{% for error in errors %}<li>{{ error }}</li>{% endfor %}</ul>
+  {% endif %}
+  <form method="post">
+    <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+    <div class="form-grid">
+      <label>频道<select name="channel">
+        {% for value, label in channels.items() %}<option value="{{ value }}" {% if article.channel == value %}selected{% endif %}>{{ label }}</option>{% endfor %}
+      </select></label>
+      <label>新闻类型<select name="kind">
+        {% for value in kinds %}<option {% if article.kind == value %}selected{% endif %}>{{ value }}</option>{% endfor %}
+      </select></label>
+    </div>
+    <label>标题<input name="title" value="{{ article.title }}" maxlength="120" required></label>
+    <label>一句话摘要<textarea name="summary" rows="2" maxlength="220">{{ article.summary }}</textarea></label>
+    <div class="form-grid">
+      <label>来源<input name="source" value="{{ article.source }}" maxlength="100"></label>
+      <label>原文发布日期<input name="source_date" type="date" value="{{ article.source_date }}"></label>
+    </div>
+    <label>原文链接<input name="source_url" type="url" value="{{ article.source_url }}" maxlength="2048"></label>
+    <div class="form-grid">
+      <label>论文状态<select name="paper">
+        <option value="">不适用</option>
+        {% for value in papers %}<option {% if article.paper == value %}selected{% endif %}>{{ value }}</option>{% endfor %}
+      </select></label>
+      <label>评测方式<select name="evidence">
+        <option value="">未填写</option>
+        {% for value in evidence %}<option {% if article.evidence == value %}selected{% endif %}>{{ value }}</option>{% endfor %}
+      </select></label>
+    </div>
+    <label>发生了什么<textarea name="event" rows="4" maxlength="5000">{{ article.event }}</textarea></label>
+    <label>为什么值得关注<textarea name="why" rows="4" maxlength="5000">{{ article.why }}</textarea></label>
+    <div class="actions">
+      {% if article.status == 'draft' %}<button class="secondary" name="action" value="draft">存为草稿</button>{% endif %}
+      <button name="action" value="published">{{ '更新已发布新闻' if article.status == 'published' else '发布' }}</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

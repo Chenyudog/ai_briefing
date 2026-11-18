@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}编辑后台 · AI 大事{% endblock %}
+{% block main %}
+<section class="workspace">
+  <div class="page-head">
+    <h1>编辑后台</h1>
+    <form method="post" action="{{ url_for('logout') }}">
+      <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+      <button class="secondary">退出登录</button>
+    </form>
+  </div>
+  <a class="button" href="{{ url_for('edit') }}">＋ 新建新闻</a>
+  <ul class="admin-list">
+    {% for article in articles %}
+    <li>
+      <div><span class="tag {{ article.status }}">{{ '已发布' if article.status == 'published' else '草稿' }}</span>
+        <span class="muted">{{ channels[article.channel] }}{% if article.source_date %} · {{ article.source_date }}{% endif %}</span>
+        <h2>{{ article.title }}</h2>
+      </div>
+      <a href="{{ url_for('edit', article_id=article.id) }}" aria-label="编辑 {{ article.title }}">编辑 →</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

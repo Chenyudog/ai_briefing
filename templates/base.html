@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}AI 大事{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <a class="skip" href="#main">跳到主要内容</a>
+  <header class="masthead">
+    <div class="shell topbar">
+      <a class="wordmark" href="{{ url_for('home') }}"><span class="mark" aria-hidden="true">✳</span> AI 大事</a>
+      <a class="admin-link" href="{{ url_for('admin') }}">编辑后台 <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main" class="shell" tabindex="-1">{% block main %}{% endblock %}</main>
+  <footer class="shell footer">AI 大事 <span>前沿 AI 与机器人研究简报</span></footer>
+</body>
+</html>
