@@ -1,31 +1,42 @@
 {% extends "base.html" %}
+{% macro story_meta(article) %}
+<div class="meta">
+  <span class="tag">{{ article.kind }}</span>
+  <span>{{ article.source }}</span>
+  <time datetime="{{ article.source_date }}">{{ article.source_date }}</time>
+</div>
+{% endmacro %}
 {% block main %}
-<section class="hero">
-  <div class="hero-art" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b><b></b><b></b></div>
-  <div class="hero-text">
-    <h1>AI 大事<span>.</span></h1>
-    <p>追踪前沿 AI 和机器人研究</p>
+<div class="edition">
+  <h1>AI 大事<span></span></h1>
+  <p>前沿 AI 与机器人研究简报</p>
+</div>
+{% if articles %}
+{% set lead = articles[0] %}
+<article class="hero story" data-enter>
+  <div class="hero-copy">
+    <h2><a href="{{ url_for('detail', article_id=lead.id) }}">{{ lead.title }}</a></h2>
+    <p>{{ lead.summary }}</p>
+    {{ story_meta(lead) }}
   </div>
-</section>
-<nav class="channels" aria-label="新闻频道">
-  {% for value, label in channels.items() %}
-    <a href="{{ url_for('home', channel=value) }}" {% if channel == value %}aria-current="page"{% endif %}>{{ label }}</a>
-  {% endfor %}
-</nav>
-<section aria-labelledby="feed-title">
+  <img class="cover" src="{{ url_for('static', filename='robotics-cover.webp') }}" width="1100" height="734" alt="" fetchpriority="high">
+</article>
+{% endif %}
+<section class="feed" aria-labelledby="feed-title">
   <div class="feed-heading"><h2 id="feed-title">{{ channels[channel] }}</h2><span>按原文发布日期排列</span></div>
-  {% for article in articles %}
-  <article class="story">
+  {% for article in articles[1:] %}
+  <article class="story feed-row">
     <time datetime="{{ article.source_date }}">{{ article.source_date }}</time>
     <div>
       <div class="meta"><span class="tag">{{ article.kind }}</span><span>{{ article.source }}</span></div>
       <h3><a href="{{ url_for('detail', article_id=article.id) }}">{{ article.title }}</a></h3>
       <p>{{ article.summary }}</p>
     </div>
-    <span class="story-arrow" aria-hidden="true">↗</span>
+    <svg class="story-arrow" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
   </article>
   {% else %}
-  <p class="empty">这个频道还没有已发布的新闻。</p>
+  <p class="empty">{{ '当前频道暂无更多新闻。' if articles else '这个频道还没有已发布的新闻。' }}</p>
   {% endfor %}
 </section>
 {% endblock %}
+{% block footer %}{% if articles %}<span class="cover-credit">封面为生成插图</span>{% endif %}{% endblock %}

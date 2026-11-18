@@ -1,0 +1,335 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T13:36:35+00:00",
+  "title": "Design System: AI 大事",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "砖红",
+        "tonalRamp": [
+          "oklch(15% 0.038 32.9)",
+          "oklch(26% 0.078 32.9)",
+          "oklch(38% 0.115 32.9)",
+          "oklch(49% 0.148 32.9)",
+          "oklch(61% 0.143 32.9)",
+          "oklch(72% 0.115 32.9)",
+          "oklch(84% 0.068 32.9)",
+          "oklch(95% 0.022 32.9)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "深砖红",
+        "tonalRamp": [
+          "oklch(15% 0.032 33.7)",
+          "oklch(26% 0.066 33.7)",
+          "oklch(38% 0.097 33.7)",
+          "oklch(49% 0.125 33.7)",
+          "oklch(61% 0.121 33.7)",
+          "oklch(72% 0.097 33.7)",
+          "oklch(84% 0.058 33.7)",
+          "oklch(95% 0.019 33.7)"
+        ]
+      },
+      "accent-wash": {
+        "role": "primary",
+        "displayName": "浅砖红",
+        "tonalRamp": [
+          "oklch(15% 0.006 54.5)",
+          "oklch(26% 0.013 54.5)",
+          "oklch(38% 0.019 54.5)",
+          "oklch(49% 0.025 54.5)",
+          "oklch(61% 0.024 54.5)",
+          "oklch(72% 0.019 54.5)",
+          "oklch(84% 0.011 54.5)",
+          "oklch(95% 0.004 54.5)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "暖纸",
+        "tonalRamp": [
+          "oklch(15% 0.003 86.8)",
+          "oklch(26% 0.006 86.8)",
+          "oklch(38% 0.009 86.8)",
+          "oklch(49% 0.012 86.8)",
+          "oklch(61% 0.011 86.8)",
+          "oklch(72% 0.009 86.8)",
+          "oklch(84% 0.005 86.8)",
+          "oklch(95% 0.002 86.8)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "浅纸",
+        "tonalRamp": [
+          "oklch(15% 0.002 91.5)",
+          "oklch(26% 0.004 91.5)",
+          "oklch(38% 0.006 91.5)",
+          "oklch(49% 0.008 91.5)",
+          "oklch(61% 0.007 91.5)",
+          "oklch(72% 0.006 91.5)",
+          "oklch(84% 0.004 91.5)",
+          "oklch(95% 0.001 91.5)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "墨黑",
+        "tonalRamp": [
+          "oklch(15% 0.003 73.4)",
+          "oklch(26% 0.005 73.4)",
+          "oklch(38% 0.008 73.4)",
+          "oklch(49% 0.010 73.4)",
+          "oklch(61% 0.010 73.4)",
+          "oklch(72% 0.008 73.4)",
+          "oklch(84% 0.005 73.4)",
+          "oklch(95% 0.002 73.4)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "灰褐",
+        "tonalRamp": [
+          "oklch(15% 0.005 75.1)",
+          "oklch(26% 0.011 75.1)",
+          "oklch(38% 0.016 75.1)",
+          "oklch(49% 0.021 75.1)",
+          "oklch(61% 0.020 75.1)",
+          "oklch(72% 0.016 75.1)",
+          "oklch(84% 0.009 75.1)",
+          "oklch(95% 0.003 75.1)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "纸灰线",
+        "tonalRamp": [
+          "oklch(15% 0.006 80.7)",
+          "oklch(26% 0.011 80.7)",
+          "oklch(38% 0.017 80.7)",
+          "oklch(49% 0.021 80.7)",
+          "oklch(61% 0.021 80.7)",
+          "oklch(72% 0.017 80.7)",
+          "oklch(84% 0.010 80.7)",
+          "oklch(95% 0.003 80.7)"
+        ]
+      },
+      "field-line": {
+        "role": "neutral",
+        "displayName": "深纸灰线",
+        "tonalRamp": [
+          "oklch(15% 0.006 67.4)",
+          "oklch(26% 0.012 67.4)",
+          "oklch(38% 0.018 67.4)",
+          "oklch(49% 0.023 67.4)",
+          "oklch(61% 0.022 67.4)",
+          "oklch(72% 0.018 67.4)",
+          "oklch(84% 0.011 67.4)",
+          "oklch(95% 0.003 67.4)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "按钮白字",
+        "tonalRamp": [
+          "oklch(15% 0.000 0.0)",
+          "oklch(26% 0.000 0.0)",
+          "oklch(38% 0.000 0.0)",
+          "oklch(49% 0.000 0.0)",
+          "oklch(61% 0.000 0.0)",
+          "oklch(72% 0.000 0.0)",
+          "oklch(84% 0.000 0.0)",
+          "oklch(95% 0.000 0.0)"
+        ]
+      },
+      "draft": {
+        "role": "neutral",
+        "displayName": "琥珀棕",
+        "tonalRamp": [
+          "oklch(15% 0.023 65.9)",
+          "oklch(26% 0.046 65.9)",
+          "oklch(38% 0.068 65.9)",
+          "oklch(49% 0.088 65.9)",
+          "oklch(61% 0.085 65.9)",
+          "oklch(72% 0.068 65.9)",
+          "oklch(84% 0.041 65.9)",
+          "oklch(95% 0.013 65.9)"
+        ]
+      },
+      "success-surface": {
+        "role": "neutral",
+        "displayName": "保存浅绿",
+        "tonalRamp": [
+          "oklch(15% 0.006 128.8)",
+          "oklch(26% 0.013 128.8)",
+          "oklch(38% 0.019 128.8)",
+          "oklch(49% 0.024 128.8)",
+          "oklch(61% 0.023 128.8)",
+          "oklch(72% 0.019 128.8)",
+          "oklch(84% 0.011 128.8)",
+          "oklch(95% 0.004 128.8)"
+        ]
+      },
+      "error-ink": {
+        "role": "neutral",
+        "displayName": "错误深红",
+        "tonalRamp": [
+          "oklch(15% 0.029 28.5)",
+          "oklch(26% 0.059 28.5)",
+          "oklch(38% 0.087 28.5)",
+          "oklch(49% 0.113 28.5)",
+          "oklch(61% 0.109 28.5)",
+          "oklch(72% 0.087 28.5)",
+          "oklch(84% 0.052 28.5)",
+          "oklch(95% 0.017 28.5)"
+        ]
+      },
+      "error-surface": {
+        "role": "neutral",
+        "displayName": "错误浅红",
+        "tonalRamp": [
+          "oklch(15% 0.006 40.3)",
+          "oklch(26% 0.012 40.3)",
+          "oklch(38% 0.017 40.3)",
+          "oklch(49% 0.022 40.3)",
+          "oklch(61% 0.022 40.3)",
+          "oklch(72% 0.017 40.3)",
+          "oklch(84% 0.010 40.3)",
+          "oklch(95% 0.003 40.3)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "刊头",
+        "purpose": "首页大号刊名。"
+      },
+      "headline": {
+        "displayName": "头条",
+        "purpose": "首页头条标题。"
+      },
+      "article-title": {
+        "displayName": "文章标题",
+        "purpose": "新闻详情页标题。"
+      },
+      "title": {
+        "displayName": "归档标题",
+        "purpose": "归档行的新闻标题。"
+      },
+      "body": {
+        "displayName": "正文",
+        "purpose": "阅读正文和后台控件。"
+      },
+      "label": {
+        "displayName": "标签",
+        "purpose": "标示新闻类型和稿件状态。"
+      }
+    },
+    "motion": [
+      {
+        "name": "cover-open",
+        "value": ".62s cubic-bezier(.18, .72, .23, 1)",
+        "purpose": "头条封面裁切展开。"
+      },
+      {
+        "name": "control-translate",
+        "value": ".18s ease",
+        "purpose": "归档箭头和按钮的悬停位移。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "mobile",
+        "value": "650px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "主按钮",
+      "kind": "button",
+      "description": "标示发布或查看原文等主要动作。",
+      "html": "<button class=\"ds-button-primary\" type=\"button\">发布</button>",
+      "css": ".ds-button-primary { display: inline-block; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid var(--accent, #a52e17); border-radius: 3px; color: white; background: var(--accent, #a52e17); padding: 8px 15px; min-height: 44px; } .ds-button-primary:hover { transform: translateY(-2px); } .ds-button-primary:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; } .ds-button-primary:active { transform: translateY(1px); } @media (prefers-reduced-motion: no-preference) { .ds-button-primary { transition: transform .18s ease; } .ds-button-primary:hover { transform: translateY(-2px); } }",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "次按钮",
+      "kind": "button",
+      "description": "标示保存草稿或退出登录等次要动作。",
+      "html": "<button class=\"ds-button-secondary\" type=\"button\">存为草稿</button>",
+      "css": ".ds-button-secondary { display: inline-block; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid var(--accent, #a52e17); border-radius: 3px; color: white; background: var(--accent, #a52e17); padding: 8px 15px; min-height: 44px; } .ds-button-secondary { color: var(--ink, #211d18); border-color: var(--line, #c9c0b1); background: var(--surface, #fffdf7); } .ds-button-secondary:hover { background: var(--accent-wash, #eddace); } .ds-button-secondary:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; } .ds-button-secondary:active { transform: translateY(1px); } @media (prefers-reduced-motion: no-preference) { .ds-button-secondary { transition: transform .18s ease; } .ds-button-secondary:hover { transform: translateY(-2px); } }",
+      "refersTo": "button-secondary"
+    },
+    {
+      "name": "文本输入",
+      "kind": "input",
+      "description": "浅纸底字段配独立的粗体标签。",
+      "html": "<label class=\"ds-field-label\">标题<input class=\"ds-text-field\" type=\"text\" placeholder=\"新闻标题\"></label>",
+      "css": ".ds-field-label { display: grid; gap: 4px; margin-bottom: 15px; font-weight: 700; } .ds-text-field { width: 100%; min-width: 0; min-height: 44px; border: 1px solid #9a8d80; border-radius: 3px; padding: 8px 10px; background: var(--surface, #fffdf7); color: var(--ink, #211d18); caret-color: var(--accent, #a52e17); font: inherit; font-weight: 400; } .ds-text-field:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; }",
+      "refersTo": "text-field"
+    },
+    {
+      "name": "频道导航",
+      "kind": "nav",
+      "description": "当前频道显示砖红文字与细下划线。",
+      "html": "<nav class=\"ds-channels\" aria-label=\"新闻频道\"><a href=\"#ai\" aria-current=\"page\">前沿 AI</a><a href=\"#robotics\">机器人 / VLA</a></nav>",
+      "css": ".ds-channels { display: flex; gap: clamp(14px, 3vw, 34px); align-self: stretch; } .ds-channels a { display: grid; align-items: center; position: relative; min-height: 44px; padding: 0 3px; color: var(--muted, #635a4e); text-decoration: none; font-size: 14px; font-weight: 650; white-space: nowrap; } .ds-channels a:is([aria-current], :hover) { color: var(--accent, #a52e17); } .ds-channels a[aria-current]::after { position: absolute; content: \"\"; bottom: -1px; inset-inline: 0; height: 2px; background: var(--accent, #a52e17); } .ds-channels a:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; }"
+    },
+    {
+      "name": "新闻类型标签",
+      "kind": "chip",
+      "description": "用砖红文字标明新闻类型。",
+      "html": "<span class=\"ds-story-tag\">研究成果</span>",
+      "css": ".ds-story-tag { color: var(--accent, #a52e17); font-size: 12px; font-weight: 750; }",
+      "refersTo": "story-tag"
+    },
+    {
+      "name": "草稿标签",
+      "kind": "chip",
+      "description": "用琥珀棕文字区分草稿。",
+      "html": "<span class=\"ds-draft-tag\">草稿</span>",
+      "css": ".ds-draft-tag { color: var(--accent, #a52e17); font-size: 12px; font-weight: 750; } .ds-draft-tag { color: #764709; }",
+      "refersTo": "draft-tag"
+    },
+    {
+      "name": "登录面板",
+      "kind": "card",
+      "description": "浅纸面板以墨色上边线标示入口。",
+      "html": "<section class=\"ds-panel\"><h2>管理员登录</h2><label class=\"ds-field-label\">密码<input class=\"ds-text-field\" type=\"password\" autocomplete=\"current-password\"></label></section>",
+      "css": ".ds-panel { max-width: 620px; margin: 44px auto; padding: 25px 30px; border: 1px solid var(--line, #c9c0b1); border-top: 2px solid var(--ink, #211d18); background: var(--surface, #fffdf7); } .ds-panel { max-width: 440px; } .ds-panel h2 { margin: 0 0 17px; font: 800 clamp(26px, 4vw, 39px)/1.3 var(--serif, \"Noto Serif CJK SC\", \"Source Han Serif SC\", \"Songti SC\", \"SimSun\", Georgia, serif); } .ds-field-label { display: grid; gap: 4px; margin-bottom: 15px; font-weight: 700; } .ds-text-field { width: 100%; min-width: 0; min-height: 44px; border: 1px solid #9a8d80; border-radius: 3px; padding: 8px 10px; background: var(--surface, #fffdf7); color: var(--ink, #211d18); caret-color: var(--accent, #a52e17); font: inherit; font-weight: 400; } .ds-text-field:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; }",
+      "refersTo": "login-panel"
+    },
+    {
+      "name": "归档条目",
+      "kind": "custom",
+      "description": "日期、标题和摘要排成可扫读的横行。",
+      "html": "<article class=\"ds-story ds-feed-row\"><time datetime=\"2026-09-10\">2026-09-10</time><div><div class=\"ds-meta\"><span class=\"ds-story-tag\">新品发布</span><span>DeepSeek</span></div><h3><a href=\"#news\">DeepSeek 发布支持视觉理解的 V4.1-Flash</a></h3><p>模型加入原生多模态视觉理解。</p></div><svg class=\"ds-story-arrow\" viewBox=\"0 0 24 24\" width=\"21\" height=\"21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></article>",
+      "css": ".ds-story { position: relative; } .ds-feed-row { display: grid; grid-template-columns: 132px minmax(0, 1fr) 32px; gap: 14px; align-items: start; padding: 19px 0 20px; border-top: 1px solid var(--line, #c9c0b1); } .ds-feed-row > time { font-size: 14px; color: var(--muted, #635a4e); padding-top: 2px; } .ds-feed-row time { font-variant-numeric: tabular-nums; } .ds-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 13px; font-size: 13px; color: var(--muted, #635a4e); } .ds-story-tag { color: var(--accent, #a52e17); font-size: 12px; font-weight: 750; } .ds-feed-row h3 { margin: 4px 0; font: 800 clamp(19px, 2.25vw, 25px)/1.4 var(--serif, \"Noto Serif CJK SC\", \"Source Han Serif SC\", \"Songti SC\", \"SimSun\", Georgia, serif); overflow-wrap: anywhere; } .ds-story a { color: var(--ink, #211d18); text-decoration: none; } .ds-story a::after { content: \"\"; position: absolute; inset: 0; } .ds-story a:hover, .ds-story:focus-within a { color: var(--accent, #a52e17); } .ds-story a:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; } .ds-feed-row p { margin: 0; color: var(--muted, #635a4e); overflow-wrap: anywhere; } .ds-story-arrow { align-self: center; justify-self: end; color: var(--accent, #a52e17); } @media (prefers-reduced-motion: no-preference) { .ds-story-arrow { transition: transform .18s ease; } .ds-story:hover .ds-story-arrow { transform: translateX(4px); } } @media (max-width: 650px) { .ds-feed-row { grid-template-columns: minmax(0, 1fr) 22px; gap: 4px 12px; padding: 13px 0; } .ds-feed-row > time { grid-column: 1 / -1; padding-top: 0; } .ds-feed-row p { font-size: 14px; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "中文科技期刊",
+    "overview": "暖纸底、墨黑刊头和砖红强调色构成简报的视觉语言。宋体标题与版面横线划分阅读层次。左文右图的头条用一张横幅插图提供视觉重心，后续条目用对齐的日期和标题方便快速浏览。\n\n新闻正文用窄栏呈现摘要、研究事实和段落，保留醒目的原文入口。编辑界面沿用纸底和横线，用清楚的字段标签和按钮区分日常编务操作。",
+    "keyCharacteristics": [
+      "暖纸底与墨色标题",
+      "砖红标示链接、当前频道和主要动作",
+      "刊头、头条、按日期排列的新闻列表",
+      "窄栏阅读和实用的原生表单"
+    ],
+    "dos": [
+      "Do 让纸色、宋体标题和细横线维持刊物的阅读层次。",
+      "Do 保持原文日期和来源的位置稳定，方便在列表中比较。",
+      "Do 用文字呈现稿件状态和表单反馈，并保留可见的键盘焦点。"
+    ],
+    "donts": [
+      "Don't 为归档行添加独立卡片底色或投影。"
+    ]
+  }
+}

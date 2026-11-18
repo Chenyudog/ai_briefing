@@ -244,4 +244,8 @@ def create_app(database=None):
 
 
 if __name__ == "__main__":
-    create_app().run(host="127.0.0.1", port=int(os.environ.get("BRIEFING_PORT", "8765")))
+    from waitress import serve
+
+    port = int(os.environ.get("BRIEFING_PORT", "8765"))
+    print(f"AI 大事正在监听 127.0.0.1:{port}", flush=True)
+    serve(create_app(), host="127.0.0.1", port=port)

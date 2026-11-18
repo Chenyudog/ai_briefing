@@ -3,3 +3,8 @@
 instance/
 __pycache__/
 *.py[cod]
+.taste-skill/
+.impeccable/questions/
+.impeccable/review/
+.agents/skills/impeccable/
+.agents/skills/taste-skill/
