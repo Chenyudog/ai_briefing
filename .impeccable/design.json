@@ -256,7 +256,7 @@
       "kind": "button",
       "description": "标示发布或查看原文等主要动作。",
       "html": "<button class=\"ds-button-primary\" type=\"button\">发布</button>",
-      "css": ".ds-button-primary { display: inline-block; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid var(--accent, #a52e17); border-radius: 3px; color: white; background: var(--accent, #a52e17); padding: 8px 15px; min-height: 44px; } .ds-button-primary:hover { transform: translateY(-2px); } .ds-button-primary:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; } .ds-button-primary:active { transform: translateY(1px); } @media (prefers-reduced-motion: no-preference) { .ds-button-primary { transition: transform .18s ease; } .ds-button-primary:hover { transform: translateY(-2px); } }",
+      "css": ".ds-button-primary { display: inline-block; font: 16px/1.7 var(--sans, \"Noto Sans CJK SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif); font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid var(--accent, #a52e17); border-radius: 3px; color: white; background: var(--accent, #a52e17); padding: 8px 15px; min-height: 44px; } .ds-button-primary:hover { transform: translateY(-2px); } .ds-button-primary:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; } .ds-button-primary:active { transform: translateY(1px); } @media (prefers-reduced-motion: no-preference) { .ds-button-primary { transition: transform .18s ease; } .ds-button-primary:hover { transform: translateY(-2px); } }",
       "refersTo": "button-primary"
     },
     {
@@ -264,7 +264,7 @@
       "kind": "button",
       "description": "标示保存草稿或退出登录等次要动作。",
       "html": "<button class=\"ds-button-secondary\" type=\"button\">存为草稿</button>",
-      "css": ".ds-button-secondary { display: inline-block; font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid var(--accent, #a52e17); border-radius: 3px; color: white; background: var(--accent, #a52e17); padding: 8px 15px; min-height: 44px; } .ds-button-secondary { color: var(--ink, #211d18); border-color: var(--line, #c9c0b1); background: var(--surface, #fffdf7); } .ds-button-secondary:hover { background: var(--accent-wash, #eddace); } .ds-button-secondary:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; } .ds-button-secondary:active { transform: translateY(1px); } @media (prefers-reduced-motion: no-preference) { .ds-button-secondary { transition: transform .18s ease; } .ds-button-secondary:hover { transform: translateY(-2px); } }",
+      "css": ".ds-button-secondary { display: inline-block; font: 16px/1.7 var(--sans, \"Noto Sans CJK SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif); font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid var(--accent, #a52e17); border-radius: 3px; color: white; background: var(--accent, #a52e17); padding: 8px 15px; min-height: 44px; } .ds-button-secondary { color: var(--ink, #211d18); border-color: var(--line, #c9c0b1); background: var(--surface, #fffdf7); } .ds-button-secondary:hover { background: var(--accent-wash, #eddace); } .ds-button-secondary:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; } .ds-button-secondary:active { transform: translateY(1px); } @media (prefers-reduced-motion: no-preference) { .ds-button-secondary { transition: transform .18s ease; } .ds-button-secondary:hover { transform: translateY(-2px); } }",
       "refersTo": "button-secondary"
     },
     {
@@ -272,7 +272,7 @@
       "kind": "input",
       "description": "浅纸底字段配独立的粗体标签。",
       "html": "<label class=\"ds-field-label\">标题<input class=\"ds-text-field\" type=\"text\" placeholder=\"新闻标题\"></label>",
-      "css": ".ds-field-label { display: grid; gap: 4px; margin-bottom: 15px; font-weight: 700; } .ds-text-field { width: 100%; min-width: 0; min-height: 44px; border: 1px solid #9a8d80; border-radius: 3px; padding: 8px 10px; background: var(--surface, #fffdf7); color: var(--ink, #211d18); caret-color: var(--accent, #a52e17); font: inherit; font-weight: 400; } .ds-text-field:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; }",
+      "css": ".ds-field-label { font: 16px/1.7 var(--sans, \"Noto Sans CJK SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif); display: grid; gap: 4px; margin-bottom: 15px; font-weight: 700; } .ds-text-field { box-sizing: border-box; width: 100%; min-width: 0; min-height: 44px; border: 1px solid #9a8d80; border-radius: 3px; padding: 8px 10px; background: var(--surface, #fffdf7); color: var(--ink, #211d18); caret-color: var(--accent, #a52e17); font: inherit; font-weight: 400; } .ds-text-field:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; }",
       "refersTo": "text-field"
     },
     {
@@ -280,14 +280,14 @@
       "kind": "nav",
       "description": "当前频道显示砖红文字与细下划线。",
       "html": "<nav class=\"ds-channels\" aria-label=\"新闻频道\"><a href=\"#ai\" aria-current=\"page\">前沿 AI</a><a href=\"#robotics\">机器人 / VLA</a></nav>",
-      "css": ".ds-channels { display: flex; gap: clamp(14px, 3vw, 34px); align-self: stretch; } .ds-channels a { display: grid; align-items: center; position: relative; min-height: 44px; padding: 0 3px; color: var(--muted, #635a4e); text-decoration: none; font-size: 14px; font-weight: 650; white-space: nowrap; } .ds-channels a:is([aria-current], :hover) { color: var(--accent, #a52e17); } .ds-channels a[aria-current]::after { position: absolute; content: \"\"; bottom: -1px; inset-inline: 0; height: 2px; background: var(--accent, #a52e17); } .ds-channels a:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; }"
+      "css": ".ds-channels { font: 16px/1.7 var(--sans, \"Noto Sans CJK SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif); display: flex; gap: clamp(14px, 3vw, 34px); align-self: stretch; } .ds-channels a { display: grid; align-items: center; position: relative; min-height: 44px; padding: 0 3px; color: var(--muted, #635a4e); text-decoration: none; font-size: 14px; font-weight: 650; white-space: nowrap; } .ds-channels a:is([aria-current], :hover) { color: var(--accent, #a52e17); } .ds-channels a[aria-current]::after { position: absolute; content: \"\"; bottom: -1px; inset-inline: 0; height: 2px; background: var(--accent, #a52e17); } .ds-channels a:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; }"
     },
     {
       "name": "新闻类型标签",
       "kind": "chip",
       "description": "用砖红文字标明新闻类型。",
       "html": "<span class=\"ds-story-tag\">研究成果</span>",
-      "css": ".ds-story-tag { color: var(--accent, #a52e17); font-size: 12px; font-weight: 750; }",
+      "css": ".ds-story-tag { font: 16px/1.7 var(--sans, \"Noto Sans CJK SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif); color: var(--accent, #a52e17); font-size: 12px; font-weight: 750; }",
       "refersTo": "story-tag"
     },
     {
@@ -295,7 +295,7 @@
       "kind": "chip",
       "description": "用琥珀棕文字区分草稿。",
       "html": "<span class=\"ds-draft-tag\">草稿</span>",
-      "css": ".ds-draft-tag { color: var(--accent, #a52e17); font-size: 12px; font-weight: 750; } .ds-draft-tag { color: #764709; }",
+      "css": ".ds-draft-tag { font: 16px/1.7 var(--sans, \"Noto Sans CJK SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif); color: var(--accent, #a52e17); font-size: 12px; font-weight: 750; } .ds-draft-tag { color: #764709; }",
       "refersTo": "draft-tag"
     },
     {
@@ -303,7 +303,7 @@
       "kind": "card",
       "description": "浅纸面板以墨色上边线标示入口。",
       "html": "<section class=\"ds-panel\"><h2>管理员登录</h2><label class=\"ds-field-label\">密码<input class=\"ds-text-field\" type=\"password\" autocomplete=\"current-password\"></label></section>",
-      "css": ".ds-panel { max-width: 620px; margin: 44px auto; padding: 25px 30px; border: 1px solid var(--line, #c9c0b1); border-top: 2px solid var(--ink, #211d18); background: var(--surface, #fffdf7); } .ds-panel { max-width: 440px; } .ds-panel h2 { margin: 0 0 17px; font: 800 clamp(26px, 4vw, 39px)/1.3 var(--serif, \"Noto Serif CJK SC\", \"Source Han Serif SC\", \"Songti SC\", \"SimSun\", Georgia, serif); } .ds-field-label { display: grid; gap: 4px; margin-bottom: 15px; font-weight: 700; } .ds-text-field { width: 100%; min-width: 0; min-height: 44px; border: 1px solid #9a8d80; border-radius: 3px; padding: 8px 10px; background: var(--surface, #fffdf7); color: var(--ink, #211d18); caret-color: var(--accent, #a52e17); font: inherit; font-weight: 400; } .ds-text-field:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; }",
+      "css": ".ds-panel { font: 16px/1.7 var(--sans, \"Noto Sans CJK SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif); max-width: 620px; margin: 44px auto; padding: 25px 30px; border: 1px solid var(--line, #c9c0b1); border-top: 2px solid var(--ink, #211d18); background: var(--surface, #fffdf7); } .ds-panel { max-width: 440px; } .ds-panel h2 { margin: 0 0 17px; font: 800 clamp(26px, 4vw, 39px)/1.3 var(--serif, \"Noto Serif CJK SC\", \"Source Han Serif SC\", \"Songti SC\", \"SimSun\", Georgia, serif); } .ds-field-label { display: grid; gap: 4px; margin-bottom: 15px; font-weight: 700; } .ds-text-field { box-sizing: border-box; width: 100%; min-width: 0; min-height: 44px; border: 1px solid #9a8d80; border-radius: 3px; padding: 8px 10px; background: var(--surface, #fffdf7); color: var(--ink, #211d18); caret-color: var(--accent, #a52e17); font: inherit; font-weight: 400; } .ds-text-field:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; }",
       "refersTo": "login-panel"
     },
     {
@@ -311,7 +311,7 @@
       "kind": "custom",
       "description": "日期、标题和摘要排成可扫读的横行。",
       "html": "<article class=\"ds-story ds-feed-row\"><time datetime=\"2026-09-10\">2026-09-10</time><div><div class=\"ds-meta\"><span class=\"ds-story-tag\">新品发布</span><span>DeepSeek</span></div><h3><a href=\"#news\">DeepSeek 发布支持视觉理解的 V4.1-Flash</a></h3><p>模型加入原生多模态视觉理解。</p></div><svg class=\"ds-story-arrow\" viewBox=\"0 0 24 24\" width=\"21\" height=\"21\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></article>",
-      "css": ".ds-story { position: relative; } .ds-feed-row { display: grid; grid-template-columns: 132px minmax(0, 1fr) 32px; gap: 14px; align-items: start; padding: 19px 0 20px; border-top: 1px solid var(--line, #c9c0b1); } .ds-feed-row > time { font-size: 14px; color: var(--muted, #635a4e); padding-top: 2px; } .ds-feed-row time { font-variant-numeric: tabular-nums; } .ds-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 13px; font-size: 13px; color: var(--muted, #635a4e); } .ds-story-tag { color: var(--accent, #a52e17); font-size: 12px; font-weight: 750; } .ds-feed-row h3 { margin: 4px 0; font: 800 clamp(19px, 2.25vw, 25px)/1.4 var(--serif, \"Noto Serif CJK SC\", \"Source Han Serif SC\", \"Songti SC\", \"SimSun\", Georgia, serif); overflow-wrap: anywhere; } .ds-story a { color: var(--ink, #211d18); text-decoration: none; } .ds-story a::after { content: \"\"; position: absolute; inset: 0; } .ds-story a:hover, .ds-story:focus-within a { color: var(--accent, #a52e17); } .ds-story a:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; } .ds-feed-row p { margin: 0; color: var(--muted, #635a4e); overflow-wrap: anywhere; } .ds-story-arrow { align-self: center; justify-self: end; color: var(--accent, #a52e17); } @media (prefers-reduced-motion: no-preference) { .ds-story-arrow { transition: transform .18s ease; } .ds-story:hover .ds-story-arrow { transform: translateX(4px); } } @media (max-width: 650px) { .ds-feed-row { grid-template-columns: minmax(0, 1fr) 22px; gap: 4px 12px; padding: 13px 0; } .ds-feed-row > time { grid-column: 1 / -1; padding-top: 0; } .ds-feed-row p { font-size: 14px; } }"
+      "css": ".ds-story { font: 16px/1.7 var(--sans, \"Noto Sans CJK SC\", \"PingFang SC\", \"Microsoft YaHei\", system-ui, sans-serif); position: relative; } .ds-feed-row { display: grid; grid-template-columns: 132px minmax(0, 1fr) 32px; gap: 14px; align-items: start; padding: 19px 0 20px; border-top: 1px solid var(--line, #c9c0b1); } .ds-feed-row > time { font-size: 14px; color: var(--muted, #635a4e); padding-top: 2px; } .ds-feed-row time { font-variant-numeric: tabular-nums; } .ds-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 13px; font-size: 13px; color: var(--muted, #635a4e); } .ds-story-tag { color: var(--accent, #a52e17); font-size: 12px; font-weight: 750; } .ds-feed-row h3 { margin: 4px 0; font: 800 clamp(19px, 2.25vw, 25px)/1.4 var(--serif, \"Noto Serif CJK SC\", \"Source Han Serif SC\", \"Songti SC\", \"SimSun\", Georgia, serif); overflow-wrap: anywhere; } .ds-story a { color: var(--ink, #211d18); text-decoration: none; } .ds-story a::after { content: \"\"; position: absolute; inset: 0; } .ds-story a:hover, .ds-story:focus-within a { color: var(--accent, #a52e17); } .ds-story a:focus-visible { outline: 2px solid var(--accent, #a52e17); outline-offset: 4px; } .ds-feed-row p { margin: 0; color: var(--muted, #635a4e); overflow-wrap: anywhere; } .ds-story-arrow { align-self: center; justify-self: end; color: var(--accent, #a52e17); } @media (prefers-reduced-motion: no-preference) { .ds-story-arrow { transition: transform .18s ease; } .ds-story:hover .ds-story-arrow { transform: translateX(4px); } } @media (max-width: 650px) { .ds-feed-row { grid-template-columns: minmax(0, 1fr) 22px; gap: 4px 12px; padding: 13px 0; } .ds-feed-row > time { grid-column: 1 / -1; padding-top: 0; } .ds-feed-row p { font-size: 14px; } }"
     }
   ],
   "narrative": {
