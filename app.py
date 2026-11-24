@@ -1,17 +1,29 @@
 import os
+import re
 import secrets
 import sqlite3
 from contextlib import closing
 from datetime import date
+from io import BytesIO
 from pathlib import Path
 
-from flask import Flask, abort, g, redirect, render_template, request, session, url_for
+from flask import Flask, Response, abort, g, redirect, render_template, request, session, url_for
+from PIL import Image
 from werkzeug.security import check_password_hash, generate_password_hash
 
 CHANNELS = {"thoughts": "我的思考", "exam": "考研历程", "essays": "小随笔"}
 FIELDS = ("channel", "title", "body", "written_on")
 COLUMNS = ", ".join(FIELDS)
 PLACEHOLDERS = ", ".join("?" for _ in FIELDS)
+IMAGE_MARKER = re.compile(r"\[图片:([a-f0-9]{32})\]")
+IMAGE_FORMATS = {"JPEG": "image/jpeg", "PNG": "image/png", "WEBP": "image/webp"}
+IMAGE_LIMIT = 10 * 1024 * 1024
+
+
+def body_parts(body):
+    for index, content in enumerate(IMAGE_MARKER.split(body)):
+        yield index % 2 == 1, content
+
 
 
 def connect(path):
@@ -26,6 +38,9 @@ def initialize(path):
         db.executescript("""
             CREATE TABLE IF NOT EXISTS settings (
                 name TEXT PRIMARY KEY, value TEXT NOT NULL
+            );
+            CREATE TABLE IF NOT EXISTS images (
+                id TEXT PRIMARY KEY, mime TEXT NOT NULL, data BLOB NOT NULL
             );
             CREATE TABLE IF NOT EXISTS entries (
                 id INTEGER PRIMARY KEY,
@@ -63,6 +78,8 @@ def create_app(database=None):
     app.config.update(SESSION_COOKIE_SAMESITE="Lax", MAX_CONTENT_LENGTH=1_000_000,
                       TRUSTED_HOSTS=["127.0.0.1", "localhost"])
 
+    app.add_template_filter(lambda body: IMAGE_MARKER.sub("", body).strip(), "article_excerpt")
+
     def get_db():
         if "db" not in g:
             g.db = connect(path)
@@ -90,6 +107,8 @@ def create_app(database=None):
                 if request.endpoint == "edit" and request.method == "GET" and request.path == "/admin/new":
                     session["new_channel"] = request.args.get("channel", "thoughts")
                 return redirect(url_for("login"), code=303)
+        if request.endpoint == "upload_image":
+            request.max_content_length = IMAGE_LIMIT + 65536
         if request.method == "POST":
             token = session.get("csrf")
             if not token or not secrets.compare_digest(token.encode(), request.form.get("csrf", "").encode()):
@@ -119,7 +138,46 @@ def create_app(database=None):
         ).fetchone()
         if article is None:
             abort(404)
-        return render_template("detail.html", article=article)
+        return render_template("detail.html", article=article, parts=body_parts(article["body"]))
+
+    @app.post("/admin/images")
+    def upload_image():
+        upload = request.files.get("image")
+        if upload is None:
+            return {"error": "请选择一张图片。"}, 400
+        data = upload.stream.read(IMAGE_LIMIT + 1)
+        if len(data) > IMAGE_LIMIT:
+            return {"error": "每张图片最大 10 MB。"}, 413
+        try:
+            with Image.open(BytesIO(data), formats=tuple(IMAGE_FORMATS)) as image:
+                mime = IMAGE_FORMATS[image.format]
+                if image.width * image.height > 25_000_000:
+                    return {"error": "图片分辨率过高，请缩小后重试。"}, 400
+                image.load()
+        except (OSError, SyntaxError, ValueError, Image.DecompressionBombError):
+            return {"error": "请选择有效的 JPG、PNG 或 WebP 图片。"}, 400
+
+        image_id = secrets.token_hex(16)
+        db = get_db()
+        with db:
+            db.execute("INSERT INTO images VALUES (?, ?, ?)", (image_id, mime, data))
+        return {"id": image_id}, 201
+
+    @app.get("/image/<image_id>")
+    def article_image(image_id):
+        db = get_db()
+        if not session.get("admin") and not db.execute(
+            "SELECT 1 FROM entries WHERE status = 'published' AND instr(body, ?) > 0 LIMIT 1",
+            (f"[图片:{image_id}]",),
+        ).fetchone():
+            abort(404)
+        image = db.execute("SELECT mime, data FROM images WHERE id = ?", (image_id,)).fetchone()
+        if image is None:
+            abort(404)
+        return Response(image["data"], mimetype=image["mime"], headers={
+            "X-Content-Type-Options": "nosniff",
+            "Cache-Control": "private, no-store",
+        })
 
     @app.route("/admin/login", methods=["GET", "POST"])
     def login():

@@ -7,7 +7,7 @@
   <article class="story feed-row">
     <time datetime="{{ article.written_on }}">{{ article.written_on }}</time>
     <div><h3><a href="{{ url_for('detail', article_id=article.id) }}">{{ article.title }}</a></h3>
-      <p>{{ article.body|truncate(90, true) }}</p></div>
+      <p>{{ article.body|article_excerpt|truncate(90, true) }}</p></div>
   </article>
   {% else %}
   <div class="empty"><p>这里还没有发表的文章。</p><a class="button" href="{{ url_for('edit', channel=channel) }}">写第一篇文章</a></div>

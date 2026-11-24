@@ -132,3 +132,12 @@ ul.error { padding-left: 30px; }
   .form-grid { grid-template-columns: 1fr; gap: 0; }
   .cover-credit { margin-left: 0; }
 }
+
+.image-tools:not([hidden]) { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 8px; }
+.editor button:disabled { opacity: .65; cursor: wait; }
+.entry-preview { margin: 8px 0 16px; border: 1px solid var(--line); padding: 8px 12px; }
+.entry-preview summary { cursor: pointer; color: var(--accent); }
+.entry-body { overflow-wrap: anywhere; }
+.entry-body p { white-space: pre-wrap; }
+.entry-body p + p, .entry-body img + p { margin-top: 1em; }
+.entry-body img { display: block; max-width: 100%; height: auto; margin: 1em auto; }

@@ -22,7 +22,20 @@
       <label>写作日期<input name="written_on" type="date" value="{{ article.written_on }}" required></label>
     </div>
     <label>标题<input name="title" value="{{ article.title }}" maxlength="120" required></label>
-    <label>正文<textarea name="body" rows="15">{{ article.body }}</textarea></label>
+    <label for="entry-body">正文</label>
+    <div class="image-tools" hidden
+         data-upload-url="{{ url_for('upload_image') }}"
+         data-image-url="{{ url_for('article_image', image_id='IMAGE_ID') }}">
+      <button class="secondary" type="button" id="insert-image">插入图片</button>
+      <input type="file" id="entry-image" accept="image/jpeg,image/png,image/webp" hidden>
+      <span class="muted" id="image-status" role="status"></span>
+    </div>
+    <textarea id="entry-body" name="body" rows="15">{{ article.body }}</textarea>
+    <details class="entry-preview" hidden>
+      <summary>正文预览</summary>
+      <div class="entry-body" id="entry-preview"></div>
+    </details>
+    <script src="{{ url_for('static', filename='entry-images.js') }}" defer></script>
     <div class="actions">
       {% if article.status == 'draft' %}<button class="secondary" name="action" value="draft">存为草稿</button>{% endif %}
       <button name="action" value="published">{{ '更新文章' if article.status == 'published' else '发布' }}</button>
