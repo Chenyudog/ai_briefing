@@ -138,6 +138,18 @@ ul.error { padding-left: 30px; }
 .entry-preview { margin: 8px 0 16px; border: 1px solid var(--line); padding: 8px 12px; }
 .entry-preview summary { cursor: pointer; color: var(--accent); }
 .entry-body { overflow-wrap: anywhere; }
-.entry-body p { white-space: pre-wrap; }
-.entry-body p + p, .entry-body img + p { margin-top: 1em; }
 .entry-body img { display: block; max-width: 100%; height: auto; margin: 1em auto; }
+.markdown-help { margin: 0 0 8px; }
+.entry-body { line-height: 1.85; }
+.entry-body h1, .entry-body h2, .entry-body h3, .entry-body h4,
+.entry-body h5, .entry-body h6 { margin: 1.35em 0 .4em; font-family: var(--serif); line-height: 1.35; }
+.entry-body h1, .reading .entry-body h1 { font-size: 2rem; }
+.entry-body h2, .reading .entry-body h2 { font-size: 1.65rem; }
+.entry-body h3 { font-size: 1.35rem; }
+.entry-body h4 { font-size: 1.15rem; }
+.entry-body h5, .entry-body h6 { font-size: 1rem; }
+.entry-body p, .reading .entry-body p { margin: .75em 0; white-space: normal; }
+.entry-body blockquote { margin-inline: 0; padding-inline-start: 1em; border-inline-start: 1px solid var(--accent); color: var(--muted); }
+.entry-body pre { overflow: auto; padding: .75em; background: var(--surface); border: 1px solid var(--line); }
+.entry-body table { border-collapse: collapse; display: block; overflow-x: auto; }
+.entry-body th, .entry-body td { padding: 5px 9px; border: 1px solid var(--line); }

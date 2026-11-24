@@ -22,15 +22,18 @@
       <label>写作日期<input name="written_on" type="date" value="{{ article.written_on }}" required></label>
     </div>
     <label>标题<input name="title" value="{{ article.title }}" maxlength="120" required></label>
-    <label for="entry-body">正文</label>
+    <label for="entry-body">正文（Markdown）</label>
     <div class="image-tools" hidden
          data-upload-url="{{ url_for('upload_image') }}"
-         data-image-url="{{ url_for('article_image', image_id='IMAGE_ID') }}">
+         data-preview-url="{{ url_for('preview_entry') }}">
+      <button class="secondary" type="button" data-heading="##">大标题</button>
+      <button class="secondary" type="button" data-heading="###">小标题</button>
       <button class="secondary" type="button" id="insert-image">插入图片</button>
       <input type="file" id="entry-image" accept="image/jpeg,image/png,image/webp" hidden>
       <span class="muted" id="image-status" role="status"></span>
     </div>
-    <textarea id="entry-body" name="body" rows="15">{{ article.body }}</textarea>
+    <p class="muted markdown-help" id="markdown-help">用 <code>## 大标题</code>、<code>### 小标题</code> 或 <code>**加粗**</code> 排版。</p>
+    <textarea id="entry-body" name="body" rows="15" aria-describedby="markdown-help">{{ article.body }}</textarea>
     <details class="entry-preview" hidden>
       <summary>正文预览</summary>
       <div class="entry-body" id="entry-preview"></div>

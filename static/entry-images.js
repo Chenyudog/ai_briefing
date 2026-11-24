@@ -7,24 +7,47 @@ const preview = document.querySelector("#entry-preview");
 const previewPanel = preview.parentElement;
 const form = editor.form;
 
-function renderPreview() {
+let previewRequest;
+
+async function renderPreview() {
     if (!previewPanel.open) return;
-    const parts = editor.value.split(/\[图片:([a-f0-9]{32})\]/);
-    preview.replaceChildren();
-    parts.forEach((part, index) => {
-        if (index % 2) {
-            const image = document.createElement("img");
-            image.src = tools.dataset.imageUrl.replace("IMAGE_ID", part);
-            image.alt = "正文配图";
-            preview.append(image);
-        } else if (part.trim()) {
-            const paragraph = document.createElement("p");
-            paragraph.textContent = part.trim();
-            preview.append(paragraph);
+    previewRequest?.abort();
+    const controller = new AbortController();
+    previewRequest = controller;
+    try {
+        const response = await fetch(tools.dataset.previewUrl, {
+            method: "POST",
+            body: new URLSearchParams({ csrf: form.elements.csrf.value, body: editor.value }),
+            signal: controller.signal,
+        });
+        if (!response.ok) throw new Error();
+        const result = await response.json();
+        if (controller.signal.aborted) return;
+        if (result.html) {
+            // Only the server's Markdown renderer can supply this HTML.
+            preview.innerHTML = result.html;
+        } else {
+            preview.textContent = "暂无正文。";
         }
-    });
-    if (!preview.childNodes.length) preview.textContent = "暂无正文。";
+    } catch (error) {
+        if (error.name !== "AbortError") preview.textContent = "预览加载失败，请重新展开预览。";
+    }
 }
+
+const headingButtons = tools.querySelectorAll("[data-heading]");
+headingButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const cursor = editor.selectionStart;
+        const start = cursor === 0 ? 0 : editor.value.lastIndexOf("\n", cursor - 1) + 1;
+        const nextBreak = editor.value.indexOf("\n", cursor);
+        const end = nextBreak === -1 ? editor.value.length : nextBreak;
+        const line = editor.value.slice(start, end).replace(/^#{1,6} +/, "");
+        editor.setRangeText(`${button.dataset.heading} ${line}`, start, end, "end");
+        editor.focus();
+        previewPanel.open = true;
+        renderPreview();
+    });
+});
 
 tools.hidden = false;
 previewPanel.hidden = false;
@@ -47,7 +70,7 @@ fileInput.addEventListener("change", async () => {
     const data = new FormData();
     data.set("csrf", form.elements.csrf.value);
     data.set("image", file);
-    const submitButtons = form.querySelectorAll("button[name=action]");
+    const submitButtons = form.querySelectorAll("button[name=action], [data-heading]");
     editor.readOnly = true;
     insertButton.disabled = true;
     submitButtons.forEach(button => button.disabled = true);
@@ -59,7 +82,7 @@ fileInput.addEventListener("change", async () => {
         }
         const result = await response.json();
         if (!response.ok) throw new Error(result.error || "上传失败，请重试。");
-        editor.setRangeText(`\n\n[图片:${result.id}]\n\n`, position, position, "end");
+        editor.setRangeText(`\n\n![正文配图](${result.url})\n\n`, position, position, "end");
         statusText.textContent = "图片已插入。";
         previewPanel.open = true;
         renderPreview();

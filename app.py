@@ -8,6 +8,8 @@ from io import BytesIO
 from pathlib import Path
 
 from flask import Flask, Response, abort, g, redirect, render_template, request, session, url_for
+from markdown_it import MarkdownIt
+from markupsafe import Markup
 from PIL import Image
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -20,10 +22,38 @@ IMAGE_FORMATS = {"JPEG": "image/jpeg", "PNG": "image/png", "WEBP": "image/webp"}
 IMAGE_LIMIT = 10 * 1024 * 1024
 
 
-def body_parts(body):
-    for index, content in enumerate(IMAGE_MARKER.split(body)):
-        yield index % 2 == 1, content
+MARKDOWN = MarkdownIt("commonmark", {"html": False, "breaks": True}).enable("table")
 
+
+def legacy_image(state, silent):
+    match = IMAGE_MARKER.match(state.src, state.pos)
+    if not match or match.end() > state.posMax:
+        return False
+    if not silent:
+        token = state.push("image", "img", 0)
+        token.attrs = {"src": f"/image/{match[1]}", "alt": ""}
+        token.children = MARKDOWN.parseInline("正文配图")[0].children
+    state.pos = match.end()
+    return True
+
+
+MARKDOWN.inline.ruler.before("link", "legacy_image", legacy_image)
+
+
+def excerpt(body):
+    paragraphs = (
+        "".join(child.content for child in block.children or () if child.type in ("text", "code_inline"))
+        for block in MARKDOWN.parse(body)
+    )
+    return " ".join(" ".join(paragraphs).split())
+
+
+def references_image(body, image_id):
+    return any(
+        child.type == "image" and child.attrGet("src") == f"/image/{image_id}"
+        for block in MARKDOWN.parse(body)
+        for child in block.children or ()
+    )
 
 
 def connect(path):
@@ -78,7 +108,7 @@ def create_app(database=None):
     app.config.update(SESSION_COOKIE_SAMESITE="Lax", MAX_CONTENT_LENGTH=1_000_000,
                       TRUSTED_HOSTS=["127.0.0.1", "localhost"])
 
-    app.add_template_filter(lambda body: IMAGE_MARKER.sub("", body).strip(), "article_excerpt")
+    app.add_template_filter(excerpt, "article_excerpt")
 
     def get_db():
         if "db" not in g:
@@ -138,7 +168,11 @@ def create_app(database=None):
         ).fetchone()
         if article is None:
             abort(404)
-        return render_template("detail.html", article=article, parts=body_parts(article["body"]))
+        return render_template("detail.html", article=article, rendered_body=Markup(MARKDOWN.render(article["body"])))
+
+    @app.post("/admin/preview")
+    def preview_entry():
+        return {"html": MARKDOWN.render(request.form.get("body", ""))}
 
     @app.post("/admin/images")
     def upload_image():
@@ -161,16 +195,18 @@ def create_app(database=None):
         db = get_db()
         with db:
             db.execute("INSERT INTO images VALUES (?, ?, ?)", (image_id, mime, data))
-        return {"id": image_id}, 201
+        return {"url": url_for("article_image", image_id=image_id)}, 201
 
     @app.get("/image/<image_id>")
     def article_image(image_id):
         db = get_db()
-        if not session.get("admin") and not db.execute(
-            "SELECT 1 FROM entries WHERE status = 'published' AND instr(body, ?) > 0 LIMIT 1",
-            (f"[图片:{image_id}]",),
-        ).fetchone():
-            abort(404)
+        if not session.get("admin"):
+            candidates = db.execute(
+                "SELECT body FROM entries WHERE status = 'published' AND instr(body, ?) > 0",
+                (image_id,),
+            )
+            if not any(references_image(row["body"], image_id) for row in candidates):
+                abort(404)
         image = db.execute("SELECT mime, data FROM images WHERE id = ?", (image_id,)).fetchone()
         if image is None:
             abort(404)

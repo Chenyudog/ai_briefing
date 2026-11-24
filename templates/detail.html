@@ -5,14 +5,6 @@
   <a class="back" href="{{ url_for('home', channel=article.channel) }}">← 返回{{ channels[article.channel] }}</a>
   <div class="meta"><time datetime="{{ article.written_on }}">{{ article.written_on }}</time></div>
   <h1>{{ article.title }}</h1>
-  <section class="entry-body">
-    {% for is_image, content in parts %}
-      {% if is_image %}
-      <img src="{{ url_for('article_image', image_id=content) }}" alt="正文配图" loading="lazy">
-      {% elif content.strip() %}
-      <p>{{ content.strip() }}</p>
-      {% endif %}
-    {% endfor %}
-  </section>
+  <section class="entry-body">{{ rendered_body }}</section>
 </article>
 {% endblock %}
