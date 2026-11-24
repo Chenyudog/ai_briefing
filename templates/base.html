@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="阅读前沿 AI 发布和机器人研究简报，直达官方公告与论文原文。">
+  <meta name="description" content="记录自己的思考、考研历程和日常随笔。">
   <meta name="page-type" content="software">
   <meta name="site-kind" content="software">
   <meta name="theme-color" content="#f6f2e9">
-  <meta property="og:title" content="AI 大事">
-  <meta property="og:description" content="前沿 AI 与机器人研究简报">
+  <meta property="og:title" content="我的手记">
+  <meta property="og:description" content="思考、备考与日常随笔">
   <meta property="og:type" content="website">
-  <title>{% block title %}AI 大事{% endblock %}</title>
+  <title>{% block title %}我的手记{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
   <header class="masthead">
     <div class="shell topbar">
-      <a class="wordmark" href="{{ url_for('home') }}">AI 大事<span></span></a>
-      <nav class="channels" aria-label="新闻频道">
+      <a class="wordmark" href="{{ url_for('home') }}">我的手记<span></span></a>
+      <nav class="channels" aria-label="手记栏目">
         {% for value, label in channels.items() %}
         {% set current = channel|default('') or (article.channel if article is defined else '') %}
         <a href="{{ url_for('home', channel=value) }}" {% if current == value %}aria-current="{{ 'page' if request.endpoint == 'home' else 'true' }}"{% endif %}>{{ label }}</a>
@@ -28,6 +28,6 @@
     </div>
   </header>
   <main id="main" class="shell" tabindex="-1">{% block main %}{% endblock %}</main>
-  <footer class="shell footer"><a href="{{ url_for('home') }}">AI 大事</a><span>前沿 AI 与机器人研究简报</span>{% block footer %}{% endblock %}</footer>
+  <footer class="shell footer"><a href="{{ url_for('home') }}">我的手记</a><span>思考、备考与日常随笔</span>{% block footer %}{% endblock %}</footer>
 </body>
 </html>

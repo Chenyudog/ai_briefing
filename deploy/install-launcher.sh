@@ -7,7 +7,7 @@ mkdir -p "$applications"
 cat > "$applications/ai-briefing.desktop" <<DESKTOP
 [Desktop Entry]
 Type=Application
-Name=AI 大事服务器
+Name=我的手记服务器
 Comment=启动本机网站并在浏览器打开
 Exec="$PWD/deploy/menu.sh"
 Terminal=true
@@ -19,4 +19,4 @@ Actions=Stop;
 Name=停止服务
 Exec="$PWD/deploy/menu.sh" stop
 DESKTOP
-printf '已安装。打开 Ubuntu 应用菜单，搜索「AI 大事服务器」。\n'
+printf '已安装。打开 Ubuntu 应用菜单，搜索「我的手记服务器」。\n'

@@ -1,23 +1,10 @@
 {% extends "base.html" %}
-{% block title %}{{ article.title }} · AI 大事{% endblock %}
+{% block title %}{{ article.title }} · 我的手记{% endblock %}
 {% block main %}
 <article class="reading">
   <a class="back" href="{{ url_for('home', channel=article.channel) }}">← 返回{{ channels[article.channel] }}</a>
-  <div class="meta">
-    <span class="tag">{{ article.kind }}</span>
-    <span>{{ article.source }}</span>
-    <time datetime="{{ article.source_date }}">{{ article.source_date }}</time>
-  </div>
+  <div class="meta"><time datetime="{{ article.written_on }}">{{ article.written_on }}</time></div>
   <h1>{{ article.title }}</h1>
-  <p class="lede">{{ article.summary }}</p>
-  {% if article.paper or article.evidence %}
-  <dl class="facts">
-    {% if article.paper %}<div><dt>论文状态</dt><dd>{{ article.paper }}</dd></div>{% endif %}
-    {% if article.evidence %}<div><dt>评测方式</dt><dd>{{ article.evidence }}</dd></div>{% endif %}
-  </dl>
-  {% endif %}
-  <section><h2>发生了什么</h2><p>{{ article.event }}</p></section>
-  <section><h2>为什么值得关注</h2><p>{{ article.why }}</p></section>
-  <a class="button source" href="{{ article.source_url }}" target="_blank" rel="noopener noreferrer">查看原文 ↗</a>
+  <section><p>{{ article.body }}</p></section>
 </article>
 {% endblock %}

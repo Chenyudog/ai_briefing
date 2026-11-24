@@ -16,7 +16,7 @@ if [[ "${1:-}" == stop ]]; then
     if systemctl --user is-active --quiet "$unit"; then
         systemctl --user stop "$unit" || { pause; exit 1; }
     fi
-    printf 'AI 大事已停止。\n'
+    printf '我的手记已停止。\n'
     pause
     exit 0
 fi
@@ -31,7 +31,7 @@ fi
 
 for attempt in {1..90}; do
     if curl -fs --max-time 1 "$url" -o /dev/null; then
-        printf 'AI 大事已启动。\n%s\n' "$url"
+        printf '我的手记已启动。\n%s\n' "$url"
         if [[ -t 0 ]]; then
             xdg-open "$url" >/dev/null 2>&1 || pause
         fi
